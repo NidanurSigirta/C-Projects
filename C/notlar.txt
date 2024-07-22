@@ -1,0 +1,177 @@
+-> "//" çift slaş ve "/..../" işareti açıklama satırı yapmaya yarar.
+-> "/n" bir satır boşluk bırakır.
+-> "/t" bir tab (10 boşluk) boşluk bırakır.
+-> "/b" geriden bir boşluk siler.
+-> / ve % ifadeelerini yazdırmak için iki defa basmamız lazım(// ve %% ).
+
+int=4 bytes  //printf("%d",sizeof(int));   sizeof fonksiyonu bu şekilde hangi değişkeni girersek onun byte değerini veriyor.
+short=2 bytes
+long=8 bytes
+char=1 bytes
+float=4 bytes
+double=8 bytes
+unsigned= karakterlerin başına bunu yazarsak bunların aralığını negatiften pozitife taşıyor.mesela int (-300,+300)arasında
+değer tutuyorsa unsigned int(0,+600)arasında değer tutacaktır.
+
+-> int:Tam sayılar için kullanılır. %d ile çağırılır.(%i de kullanılabilir)
+-> char:Karakterler için kullanılır. %c kullanılır.
+-> float:Ondalıklı sayılar için kullanılır. %f kullanılır.(%.2f demek virgülden sonra sadece 2 sayı istiyorum demektir.)
+-> double:Küsuratı daha fazla olan ondalıklı sayılar için kullanılır. %lf kullanılır.
+-> scanf:Kullanıcıdan veri alınmasını sağlar.Printf ile %s ile çağırılır.Virgülden sonraki girilen yerleri almaz
+-> puts da printf gibi yazdırma işlemlerinde kullanılabilir ancak sadece string ifadeler alır %d falan konulmamalı içine.
+
+*int da sayıyı onluk tabanda %d, 16 lık tabanda %x, 8 lik tabanda %o ile tanımlarız.Sayının bilimsel hali için ise %e/E kullanılır.
+
+->atama tek eşittir ile yapılır : int kalem=2;
+->sorgulama ise 2 eşittir ile yapılır: if(sayi==2)
+
+-> sayının 2 ye göre mod alma: sayi%2==0;
+-> ve:&&, veya:||, eşit midir:==, eşit değildir:!=
+-> & scanf ile kullanılır.Değerin tanımlanmasını sağlar.
+
+ 
+--> i=5;
+ j=(i++)*2 and i=6 ve j=10   (+ veya - sağdaysa ilk işlem yap sonra arttır)
+
+--> i=5;
+ j=(i++)*2 and i=6 ve j=12  (+ veya - soldaysa ilk arttır sonra işlem yap)
+
+
+** if else yapısı:Karar yapılarıdır.
+sayi=5;
+
+if(sayi==5) //sayi 5 ise
+{
+printf("sayi 5 e eşittir");
+}
+else //değilse
+{
+printf("sayi 5 e eşit değildir")
+}
+
+
+** for yapısı:Döngüdür.Bir şeyin birden fazla tekrarlanmasını sağlar.(başlangıç;bitiş;artış miktarı) şeklindeki yapıdır.
+
+sayi++ ve sayi+=1 aynı anlamdadır.
+
+int i;
+for(i=1;i<=5;i++)
+{                       // burada 1 den başlayıp i artarak 5 olana kadar 5 defa hello world yazılıcak.
+printf("hello world");
+}
+
+
+**do-while=Şartlı döngüdür. 
+sayi=5;                     // böyle de kullanılabilir -->       do{                
+while(sayi<=6)                                                    ifade;
+{                                                               } while(koşul)
+printf("devam");                                                     
+i++;
+} 
+
+**switch case yapısı
+
+switch(ay)
+{
+case 1:{
+printf("ocak");
+break;  //break istenilen ay dışındaki değeleri almayı engeller. continue ise ihmal eder ama break direk çıkış yapar.
+}           
+case 2:{
+printf("şubat");
+break;
+}
+...
+case 12:{
+printf("aralık");
+break;
+}
+default:{
+printf("hatali sayi girişi"); //ay yerine 13 girerse mesela.
+break;
+}
+
+}
+
+
+*DİZİLER**
+diziadi[]={.., .., ..}; sembolü ile gösterilir.Dizi belli bir özellikteki grubu simgeler.
+MATRİS:[0][0] şeklinde indislerle gösterilen şekildir.
+INDEX:eleman sırasıdır.dizide ındex değeri 0 dan başlar.
+'\0' null karakteri katar dizilerinde boşluk anlamına geliyor.Herzaman katarın en son karakteri NULL olacağından,
+ n boyutlu bir katara n+1 boyutluk yer ayırtmak gerekir.
+
+
+yıldızlarla şekil oluşturmada i satır sayısını j ise sütunları doldurur:
+
+for(i=1;i<=5;i++)                                                 *
+{                                                                 **
+  for(j=1;j<=i;j++) // i nin o anki değeri kadar yıldız çizecek   *     
+{                                                                 **
+printf("\n");                                                    **
+}
+
+}
+
+
+*matematik fonsiyonları için(sqrt,pow,cos-sin,ceil,floor,log) #include<math.h> kütüphanesi kullanılır.
+
+
+**POİNTER(işaretci-gösterici)**
+
+Verinin bellekteki adresini gösteren yapıdır. %x veya %p ile gösterilir.%u da olur.( %#x ) yazarsak ise hexadecimal formda
+bellekteki tam adresini verir.
+
+
+ int sayi=20;  
+ int *s=&sayi;   // sayının bellek adresini tutuyor.  *s ve sayi terminalde 20 değerini gösterir.
+
+--> Örnek:
+int=4 byt! 
+Kabul edelim ki aPtr pointerı bellekte 3000 adresinde dizinin ilk elemanı olan A[0] ı işaret ediyor.   
+aPtr=A;        veya        aPtr=&A[0];      
+aPtr+=2 işlemi aPtr pointer değişkenine 3008 değerini atar. 
+  (3008=3000+2*4)
+aPtr artık A[2] yi işaret eder.
+
+Örnek: (Pointer lar üzerinde çıkarma işlemi) 
+Eğer aPtr2=&A[2]; ve aPtr1=&A[0]; ise           
+ aPtr2–aPtr1  çıkarma işlemi 2 sonucunu verir ve bu sonuç bize, bu iki adres arasında kaç eleman saklandığını gösterir.
+(aPtr2=aPtr1+2)
+
+iptr = &i; i değişkenin adresinin 1000 olduğunu varsayalım. iptr nin değeri(doubleye göre)
+1000 dir.
+*(iptr+4)=2; 1016 adresinin içeriğini 2 yapar.
+
+Bir dizinin, i. elemanına erişmek için *(p+i) işlemi yapılması zorunludur. Yani *(p+1) =p[1]
+
+p+i; / p nin gösterdiği değere (dizinin ilk elemanına) i sayısını ekle */ 
+(p+i); / p nin gösterdiği adresten i blok ötedeki sayıyı hesapla */ 
+anlamındadır. Çünkü, * operatörü + operatörüne göre işlem önceliğine sahiptir. 
+
+
+**FONKSİYONLAR**
+
+Kod yükünü azaltmak için kullanılır.
+Birden fazla yerde kullanılan kodun sadece bir yerde kullanılıp değişritilmesini sağlar.
+
+Fonksiyonlar geriye değer döndüren ve döndürmeyen fonksiyon olmaz üzere ikiye ayrılır:
+
+İçinde aritmetik işlemler olup değer döndüren fonksiyonlar geriye değer döndüren,sadece printf ile yazma işlemi olanlara ise
+geriye değer döndürmeyen fonksiyon denir.
+
+void içinde sadece printf ile yazdırma işlemi dışında başka ritmrtik bir işlem yok ise geriye değer döndürmeyen fonksiyon denir.
+int topla(int s1,int s2){  //şeklinde veya başka bir aritmetik şekilde tanımlanana fonksiyonlara da geri değer döndüren fonkiyona
+ return (s1 +s2);            denir.return zaten dış dünyaya döndürme anlamına gelir.
+}
+
+*Define:Fonksiyon içinde bir çok noktada değişen bir değeri yukarıda 1 kez kolayca tanımlayıp bütün değer için geçerli
+kılan değişkendir.
+
+
+int bitduzeyi=64;
+printf("sola kaydırılmış %d",bitduzeyi<<1) =128
+printf("sağa kaydırılmış %d",bitduzeyi>>1) =32
+
+fflush(stdin); // bufferi temizlemek için kullanılır
+// printf sonrası gelen scanf'i çalıştırmak için ikisinin arasına konur
